@@ -15,20 +15,33 @@ function iconSvg(name){
     calendar:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
     gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 00-.2-1.6l2-1.5-2-3.4-2.3.9a7 7 0 00-2.8-1.6L13.3 2h-2.6l-.4 2.8a7 7 0 00-2.8 1.6l-2.3-.9-2 3.4 2 1.5A7 7 0 005 12c0 .5 0 1.1.2 1.6l-2 1.6 2 3.4 2.3-1a7 7 0 002.8 1.7l.4 2.7h2.6l.4-2.7a7 7 0 002.8-1.7l2.3 1 2-3.4-2-1.6c.2-.5.2-1.1.2-1.6z"/></svg>',
     pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
-    info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>'
+    info:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>',
+    star:'<svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>',
+    chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>'
   };
   return icons[name] || icons.pin;
 }
 const CAT_COLORS = {
-  mountain:['#2b3a55','#7c9a7e'], waterfall:['#123f4f','#2ba7c7'], dam:['#1b3b5f','#3f8fc0'],
+  mountain:['#1f4a3a','#5c9d78'], waterfall:['#0d3f4f','#2ba7c7'], dam:['#0f3a52','#3f8fc0'],
   shrine:['#4a2c1a','#b9803f'], tulip:['#5c1a1a','#c0272b'], lion:['#3a3226','#a9793c'],
-  fire:['#4a1f12','#d9762e'], lake:['#16324a','#3fa796']
+  fire:['#4a1f12','#d9762e'], lake:['#123a45','#3fa796']
 };
-function bannerHTML(icon){
-  const c = CAT_COLORS[icon] || ['#333','#777'];
+function bannerHTML(icon, imageUrl){
+  const c = CAT_COLORS[icon] || ['#1f4a3a','#5c9d78'];
+  if (imageUrl && imageUrl.trim()){
+    return `<div class="banner">
+      <img src="${imageUrl}" alt="" loading="lazy" onerror="this.parentElement.innerHTML=window.__bannerFallback('${icon}')">
+      <div class="photo-shade"></div>
+      <div class="badge-ico" style="background:${c[1]}">${iconSvg(icon)}</div>
+    </div>`;
+  }
+  return window.__bannerFallback(icon);
+}
+window.__bannerFallback = function(icon){
+  const c = CAT_COLORS[icon] || ['#1f4a3a','#5c9d78'];
   return `<div class="banner" style="background:linear-gradient(150deg,${c[0]},${c[1]})">
     <div class="watermark">${iconSvg(icon)}</div>
     <div class="ridge"></div>
     <div class="badge-ico">${iconSvg(icon)}</div>
   </div>`;
-}
+};

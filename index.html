@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>الیگودرزگرد</title>
+<title>الیگودرز من</title>
 <meta name="description" content="راهنمای جاذبه‌های گردشگری شهرستان الیگودرز با نقشه، فاصله، آنتن‌دهی و بهترین زمان سفر.">
 <meta name="theme-color" content="#221E17">
 <link rel="manifest" href="manifest.json">
@@ -11,13 +11,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="الیگودرزگرد">
+<meta name="apple-mobile-web-app-title" content="الیگودرز من">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --stone:#F3EEE1; --stone-2:#E9E1CC; --ink:#221E17; --ink-soft:#67614F;
-  --tulip:#C0272B; --tulip-dark:#8C1A1E; --card:#FFFDF7; --line:#e2d8bd;
+  --brand:#2E7D4F; --brand-dark:#1F5A38; --brand-light:#8FBF9F; --card:#FFFDF7; --line:#e2d8bd;
   --nav-h:64px; --header-h:56px;
 }
 *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
@@ -26,7 +26,7 @@ body{
   background:#1c1a14; font-family:'Vazirmatn',sans-serif; color:var(--ink);
   display:flex; justify-content:center; align-items:stretch;
 }
-::selection{background:var(--tulip); color:#fff;}
+::selection{background:var(--brand); color:#fff;}
 button{font-family:inherit; border:none; background:none; cursor:pointer;}
 input{font-family:inherit;}
 
@@ -47,7 +47,7 @@ input{font-family:inherit;}
   padding:0 16px; background:var(--stone); position:relative; z-index:5;
 }
 .appbar .brand{display:flex; align-items:center; gap:8px; font-weight:800; font-size:1.05rem;}
-.appbar .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--tulip);}
+.appbar .brand .dot{width:9px; height:9px; border-radius:50%; background:var(--brand);}
 .appbar .icon-btn{
   width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center;
   background:var(--stone-2); color:var(--ink);
@@ -65,17 +65,33 @@ input{font-family:inherit;}
 
 /* ---------- home hero ---------- */
 .home-hero{
-  margin:6px 16px 16px; padding:20px 18px; border-radius:20px; color:#fff; position:relative; overflow:hidden;
-  background:linear-gradient(135deg,#2a2318,#3c2f1e 55%, #4a3a22);
+  margin:6px 16px 16px; padding:22px 18px 20px; border-radius:20px; color:#fff; position:relative; overflow:hidden;
+  background:linear-gradient(180deg,#3a6b52 0%,#22452f 65%,#152e1f 100%);
+  min-height:190px;
+}
+.home-hero .sun{
+  position:absolute; top:16px; left:22px; width:34px; height:34px; border-radius:50%;
+  background:#F2C94C; box-shadow:0 0 26px 8px rgba(242,201,76,.45);
+}
+.home-hero .ridge-back{
+  position:absolute; left:-5%; right:-5%; bottom:0; height:58%; background:#2c5a41;
+  clip-path:polygon(0 100%,0 62%,14% 40%,28% 58%,42% 28%,56% 50%,68% 22%,82% 46%,100% 30%,100% 100%);
+}
+.home-hero .ridge-mid{
+  position:absolute; left:-5%; right:-5%; bottom:0; height:44%; background:#1f472f;
+  clip-path:polygon(0 100%,0 70%,12% 50%,26% 68%,40% 42%,54% 62%,70% 38%,86% 60%,100% 48%,100% 100%);
 }
 .home-hero .ridge{
-  position:absolute; left:0; right:0; bottom:0; height:46%; background:rgba(0,0,0,.28);
+  position:absolute; left:0; right:0; bottom:0; height:30%; background:rgba(0,0,0,.35);
   clip-path:polygon(0 100%,0 55%,9% 72%,20% 42%,33% 66%,46% 30%,58% 58%,72% 38%,86% 64%,100% 48%,100% 100%);
 }
-.home-hero h1{font-size:1.35rem; margin:0 0 6px; position:relative; font-weight:800;}
-.home-hero p{font-size:.82rem; color:#D8CFB6; margin:0 0 14px; position:relative; max-width:34ch;}
-.home-hero .chip-row{display:flex; gap:8px; position:relative; flex-wrap:wrap;}
-.home-hero .chip{background:rgba(255,255,255,.14); font-size:.72rem; padding:5px 11px; border-radius:999px;}
+.home-hero .river{
+  position:absolute; left:0; right:0; bottom:0; height:10%; background:linear-gradient(180deg,rgba(143,203,224,.55),rgba(143,203,224,.15));
+}
+.home-hero h1{font-size:1.35rem; margin:0 0 6px; position:relative; font-weight:800; z-index:1;}
+.home-hero p{font-size:.82rem; color:#DCE9DE; margin:0 0 14px; position:relative; max-width:34ch; z-index:1;}
+.home-hero .chip-row{display:flex; gap:8px; position:relative; flex-wrap:wrap; z-index:1;}
+.home-hero .chip{background:rgba(255,255,255,.16); font-size:.72rem; padding:5px 11px; border-radius:999px;}
 
 /* ---------- search ---------- */
 .search-wrap{margin:0 16px 14px; position:relative;}
@@ -107,16 +123,23 @@ input{font-family:inherit;}
   width:104px; flex:none; position:relative; overflow:hidden;
 }
 .banner{position:absolute; inset:0; overflow:hidden;}
+.banner img{width:100%; height:100%; object-fit:cover; display:block;}
+.banner .photo-shade{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.45) 100%);}
 .banner .ridge{
   position:absolute; left:0; right:0; bottom:0; height:44%; background:rgba(0,0,0,.3);
   clip-path:polygon(0 100%,0 58%,10% 76%,22% 46%,34% 70%,48% 34%,60% 60%,74% 40%,88% 66%,100% 50%,100% 100%);
 }
 .banner .watermark{position:absolute; top:-10px; left:-10px; width:70px; height:70px; opacity:.22; color:#fff;}
-.banner .badge-ico{position:absolute; bottom:8px; right:8px; width:26px; height:26px; color:#fff; opacity:.95;}
+.banner .badge-ico{
+  position:absolute; bottom:8px; right:8px; width:26px; height:26px; color:#fff; opacity:.95;
+  border-radius:50%; display:flex; align-items:center; justify-content:center; padding:5px; box-sizing:border-box;
+  box-shadow:0 2px 6px rgba(0,0,0,.35);
+}
+.banner .badge-ico svg{width:60%; height:60%;}
 .site-card .info{flex:1; padding:12px 12px 12px 6px; min-width:0;}
 .site-card .info .top-row{display:flex; justify-content:space-between; align-items:flex-start; gap:6px;}
 .site-card h3{margin:0; font-size:.95rem; font-weight:700; line-height:1.4;}
-.site-card .cat{font-size:.7rem; color:var(--ink-soft); margin:2px 0 6px;}
+.site-card .cat{font-size:.68rem; display:inline-block; padding:2px 9px; border-radius:999px; margin:3px 0 6px; color:#fff;}
 .site-card .meta{display:flex; gap:10px; font-size:.72rem; color:var(--ink-soft);}
 .site-card .meta b{color:var(--ink); font-weight:600;}
 .fav-btn{
@@ -124,7 +147,7 @@ input{font-family:inherit;}
   display:flex; align-items:center; justify-content:center; color:var(--ink-soft);
 }
 .fav-btn svg{width:14px; height:14px;}
-.fav-btn.on{color:var(--tulip);}
+.fav-btn.on{color:var(--brand);}
 .empty-note{margin:30px 20px; text-align:center; color:var(--ink-soft); font-size:.85rem;}
 
 /* ---------- map page ---------- */
@@ -143,18 +166,28 @@ input{font-family:inherit;}
 /* ---------- about page ---------- */
 .about-hero{margin:6px 16px 20px; text-align:center; padding:26px 10px 10px;}
 .about-hero .logo{
-  width:64px; height:64px; margin:0 auto 12px; border-radius:20px; background:var(--tulip); color:#fff;
+  width:64px; height:64px; margin:0 auto 12px; border-radius:20px; background:var(--brand); color:#fff;
   display:flex; align-items:center; justify-content:center;
 }
 .about-hero .logo svg{width:32px; height:32px;}
 .about-hero h2{margin:0 0 4px; font-size:1.15rem;}
 .about-hero p{margin:0; font-size:.82rem; color:var(--ink-soft);}
 .tip-card{margin:0 16px 12px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:16px;}
-.tip-card .ico-sm{width:34px; height:34px; border-radius:9px; background:var(--tulip); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:8px;}
+.tip-card .ico-sm{width:34px; height:34px; border-radius:9px; background:var(--brand); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:8px;}
 .tip-card .ico-sm svg{width:17px; height:17px;}
 .tip-card h4{margin:0 0 4px; font-size:.88rem;}
 .tip-card p{margin:0; font-size:.8rem; color:var(--ink-soft);}
 .credit-note{margin:20px 16px 6px; font-size:.72rem; color:var(--ink-soft); text-align:center;}
+
+/* ---------- reviews ---------- */
+.review-card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 15px;}
+.review-card .r-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;}
+.review-card .r-name{font-size:.86rem; font-weight:700;}
+.review-card .r-site{font-size:.72rem; color:var(--ink-soft); margin-top:2px;}
+.review-card .r-stars{display:flex; gap:2px; color:#E3B94C;}
+.review-card .r-stars svg{width:13px; height:13px;}
+.review-card .r-text{font-size:.84rem; color:var(--ink-soft); line-height:1.7;}
+.review-card .r-date{font-size:.68rem; color:var(--ink-soft); opacity:.7; margin-top:6px;}
 
 /* ---------- bottom nav ---------- */
 .bottom-nav{
@@ -167,8 +200,8 @@ input{font-family:inherit;}
   color:var(--ink-soft); font-size:.66rem; position:relative;
 }
 .nav-btn svg{width:20px; height:20px;}
-.nav-btn.active{color:var(--tulip);}
-.nav-btn .fav-dot{position:absolute; top:2px; left:calc(50% + 8px); width:7px; height:7px; border-radius:50%; background:var(--tulip);}
+.nav-btn.active{color:var(--brand);}
+.nav-btn .fav-dot{position:absolute; top:2px; left:calc(50% + 8px); width:7px; height:7px; border-radius:50%; background:var(--brand);}
 
 /* ---------- detail overlay ---------- */
 #detail{
@@ -177,6 +210,8 @@ input{font-family:inherit;}
 }
 #detail.open{transform:translateX(0);}
 .detail-banner{height:230px; position:relative; overflow:hidden; flex:none;}
+.detail-banner img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.detail-banner .photo-shade{position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.5) 100%);}
 .detail-banner .ridge{
   position:absolute; left:0; right:0; bottom:0; height:40%; background:rgba(0,0,0,.32);
   clip-path:polygon(0 100%,0 60%,8% 78%,18% 44%,30% 70%,44% 32%,56% 60%,70% 40%,84% 68%,100% 52%,100% 100%);
@@ -203,7 +238,7 @@ input{font-family:inherit;}
 .signal-bars i{width:4px; background:var(--line); border-radius:1px; display:block;}
 .signal-bars i:nth-child(1){height:4px;} .signal-bars i:nth-child(2){height:8px;}
 .signal-bars i:nth-child(3){height:11px;} .signal-bars i:nth-child(4){height:14px;}
-.signal-bars i.on{background:#4B6B4C;} .signal-bars i.weak.on{background:var(--tulip);}
+.signal-bars i.on{background:#4B6B4C;} .signal-bars i.weak.on{background:var(--brand);}
 .map-btn{
   width:100%; padding:13px; border-radius:14px; background:var(--ink); color:#fff; font-size:.88rem;
   display:flex; align-items:center; justify-content:center; gap:8px; font-weight:600;
@@ -217,9 +252,9 @@ input{font-family:inherit;}
 
 <div id="frame">
   <div class="appbar">
-    <div class="brand"><span class="dot"></span> الیگودرزگرد</div>
+    <div class="brand"><span class="dot"></span> الیگودرز من</div>
     <div style="display:flex; gap:8px;">
-      <button class="icon-btn" id="installBtn" aria-label="نصب اپ" style="display:none; background:var(--tulip); color:#fff;">
+      <button class="icon-btn" id="installBtn" aria-label="نصب اپ" style="display:none; background:var(--brand); color:#fff;">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
       </button>
       <button class="icon-btn" id="langInfoBtn" aria-label="راهنما"></button>
@@ -231,9 +266,13 @@ input{font-family:inherit;}
     <!-- HOME -->
     <div class="page active" id="page-home">
       <div class="home-hero">
+        <div class="sun"></div>
+        <div class="ridge-back"></div>
+        <div class="ridge-mid"></div>
         <div class="ridge"></div>
-        <h1>جاذبه‌های شهرستان الیگودرز</h1>
-        <p>از دشت لالهٔ واژگون تا آبشارهای پنهان زاگرس — یک اپ کوچک برای برنامه‌ریزی سفر.</p>
+        <div class="river"></div>
+        <h1>الیگودرز من</h1>
+        <p>از دشت لالهٔ واژگون تا آبشارهای پنهان زاگرس — راهنمای جاذبه‌های شهرستان الیگودرز.</p>
         <div class="chip-row">
           <span class="chip">۱۰ جاذبه</span>
           <span class="chip">فاصله ۳ تا ۱۳۰ کیلومتر</span>
@@ -256,6 +295,17 @@ input{font-family:inherit;}
       </div>
     </div>
 
+    <!-- REVIEWS -->
+    <div class="page" id="page-reviews">
+      <div class="section-label" style="margin-top:20px;"><b>نظرات بازدیدکنندگان</b><span id="reviewCount"></span></div>
+      <div style="margin:0 16px 14px;">
+        <button class="map-btn" id="addReviewBtn"><span id="reviewBtnIcon"></span> ثبت نظر جدید</button>
+      </div>
+      <div id="reviewList" style="padding:0 16px; display:flex; flex-direction:column; gap:10px;"></div>
+      <div class="empty-note" id="reviewEmpty" style="display:none;">هنوز نظری ثبت نشده. اولین نفری باشید که نظر می‌دهد!</div>
+      <div class="empty-note" id="reviewNotConfigured" style="display:none;">بخش نظرات هنوز راه‌اندازی نشده است.</div>
+    </div>
+
     <!-- FAVORITES -->
     <div class="page" id="page-fav">
       <div class="section-label" style="margin-top:20px;"><b>علاقه‌مندی‌های من</b></div>
@@ -267,7 +317,7 @@ input{font-family:inherit;}
     <div class="page" id="page-about">
       <div class="about-hero">
         <div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 20l6-11 4 6 2-3 6 8H3z"/></svg></div>
-        <h2>دربارهٔ الیگودرزگرد</h2>
+        <h2>دربارهٔ الیگودرز من</h2>
         <p>راهنمای اولیهٔ گردشگری شهرستان الیگودرز، استان لرستان.</p>
       </div>
       <div id="aboutTips"></div>
@@ -279,6 +329,7 @@ input{font-family:inherit;}
   <div class="bottom-nav">
     <button class="nav-btn active" data-page="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7M5 10v10h14V10"/></svg>خانه</button>
     <button class="nav-btn" data-page="map"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-6-3V4l6 3 6-3 6 3v13l-6-3-6 3z"/><path d="M9 4v13M15 7v13"/></svg>نقشه</button>
+    <button class="nav-btn" data-page="reviews"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>نظرات</button>
     <button class="nav-btn" data-page="fav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.4-9.5 9-9.5 9z"/></svg>علاقه‌مندی</button>
     <button class="nav-btn" data-page="about"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>درباره</button>
   </div>
@@ -303,11 +354,12 @@ input{font-family:inherit;}
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="sheet-config.js"></script>
+<script src="reviews-config.js"></script>
 <script src="icons.js"></script>
 <script src="sites-seed.js"></script>
 <script>
 /* ============ data ============ */
-const CITY = {lat:33.400, lng:49.698};
+const CITY = {lat:33.4078, lng:49.6997};
 
 let SITES = FALLBACK_SITES.slice();
 let activeCat = 'همه';
@@ -335,12 +387,12 @@ function siteCard(site){
   const el = document.createElement('div');
   el.className = 'site-card';
   el.innerHTML = `
-    <div class="thumb">${bannerHTML(site.icon)}</div>
+    <div class="thumb">${bannerHTML(site.icon, site.imageUrl)}</div>
     <div class="info">
       <div class="top-row">
         <div>
           <h3>${site.name}</h3>
-          <div class="cat">${site.category}</div>
+          <div class="cat" style="background:${(CAT_COLORS[site.icon]||CAT_COLORS.mountain)[1]}">${site.category}</div>
         </div>
         <button class="fav-btn ${isFav?'on':''}" data-id="${site.id}">
           <svg viewBox="0 0 24 24" fill="${isFav?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.6-9.5-9A5.5 5.5 0 0112 5a5.5 5.5 0 019.5 7c-2.5 4.4-9.5 9-9.5 9z"/></svg>
@@ -454,15 +506,31 @@ function syncDetailFavIcon(id){
   const on = favorites.has(id);
   const svg = document.querySelector('#detailFavBtn svg');
   svg.setAttribute('fill', on ? 'currentColor':'none');
-  document.getElementById('detailFavBtn').style.color = on ? 'var(--tulip)' : '#fff';
+  document.getElementById('detailFavBtn').style.color = on ? 'var(--brand)' : '#fff';
 }
 function openDetail(id){
   const site = SITES.find(s=>s.id===id);
   currentDetailId = id;
-  document.getElementById('detailBanner').style.background = `linear-gradient(150deg,${CAT_COLORS[site.icon][0]},${CAT_COLORS[site.icon][1]})`;
-  document.getElementById('detailBanner').querySelector('.watermark')?.remove();
-  const wm = document.createElement('div'); wm.className='watermark'; wm.innerHTML = iconSvg(site.icon);
-  document.getElementById('detailBanner').prepend(wm);
+  const banner = document.getElementById('detailBanner');
+  banner.querySelector('img')?.remove();
+  banner.querySelector('.photo-shade')?.remove();
+  banner.querySelector('.watermark')?.remove();
+  if (site.imageUrl && site.imageUrl.trim()){
+    banner.style.background = '#1c1a14';
+    const img = document.createElement('img');
+    img.src = site.imageUrl; img.alt = '';
+    img.onerror = ()=>{ img.remove(); shade.remove(); applyGradientFallback(); };
+    banner.prepend(img);
+    const shade = document.createElement('div'); shade.className = 'photo-shade';
+    banner.insertBefore(shade, banner.querySelector('.ridge'));
+  } else {
+    applyGradientFallback();
+  }
+  function applyGradientFallback(){
+    banner.style.background = `linear-gradient(150deg,${CAT_COLORS[site.icon][0]},${CAT_COLORS[site.icon][1]})`;
+    const wm = document.createElement('div'); wm.className='watermark'; wm.innerHTML = iconSvg(site.icon);
+    banner.prepend(wm);
+  }
   document.getElementById('detailCat').textContent = site.category;
   document.getElementById('detailName').textContent = site.name;
   document.getElementById('detailDesc').textContent = site.desc;
@@ -547,6 +615,7 @@ function sheetRowsToSites(rows){
     id: r[idx.id] || r[idx.name],
     name: r[idx.name] || '',
     icon: (r[idx.icon] || 'mountain').trim(),
+    imageUrl: (idx.imageUrl!==undefined ? r[idx.imageUrl] : '') || '',
     category: r[idx.category] || '',
     lat: parseFloat(r[idx.lat]),
     lng: parseFloat(r[idx.lng]),
@@ -579,6 +648,71 @@ function refreshFromSheet(){
 refreshFromSheet();
 setInterval(refreshFromSheet, 60000); // re-check every minute so edits show up without reloading the app
 document.addEventListener('visibilitychange', ()=>{ if(document.visibilityState==='visible') refreshFromSheet(); });
+
+/* ============ reviews (read from a second published Google Sheet + a Google Form link) ============ */
+document.getElementById('reviewBtnIcon').innerHTML = iconSvg('chat');
+document.getElementById('addReviewBtn').onclick = ()=>{
+  if (typeof REVIEW_FORM_URL !== 'undefined' && REVIEW_FORM_URL && !REVIEW_FORM_URL.startsWith('PASTE_')){
+    window.open(REVIEW_FORM_URL, '_blank');
+  } else {
+    alert('فرم ثبت نظر هنوز تنظیم نشده است.');
+  }
+};
+
+function starsHTML(n){
+  n = Math.max(0, Math.min(5, Math.round(Number(n) || 0)));
+  let html = '<div class="r-stars">';
+  for (let i=0;i<5;i++){ html += i<n ? iconSvg('star') : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7L12 17.3 5.8 20.9l1.6-7L2 9.2l7.1-.6z"/></svg>`; }
+  return html + '</div>';
+}
+
+function reviewRowsToList(rows){
+  const [header, ...body] = rows;
+  const idx = Object.fromEntries(header.map((h,i)=>[h.trim(), i]));
+  return body.map(r=>({
+    site: r[idx.site] || '',
+    name: r[idx.name] || 'کاربر مهمان',
+    rating: r[idx.rating] || 0,
+    comment: r[idx.comment] || '',
+    date: r[idx.date] || ''
+  })).filter(x => x.comment.trim() !== '').reverse(); // newest form responses are appended at the bottom of the sheet
+}
+
+function renderReviews(list){
+  const box = document.getElementById('reviewList');
+  const empty = document.getElementById('reviewEmpty');
+  box.innerHTML = '';
+  document.getElementById('reviewCount').textContent = list.length ? `(${list.length})` : '';
+  empty.style.display = list.length ? 'none' : 'block';
+  list.forEach(rv=>{
+    const el = document.createElement('div');
+    el.className = 'review-card';
+    el.innerHTML = `
+      <div class="r-top">
+        <div><div class="r-name">${rv.name}</div>${rv.site ? `<div class="r-site">${rv.site}</div>` : ''}</div>
+        ${starsHTML(rv.rating)}
+      </div>
+      <div class="r-text">${rv.comment}</div>
+      ${rv.date ? `<div class="r-date">${rv.date}</div>` : ''}
+    `;
+    box.appendChild(el);
+  });
+}
+
+function refreshReviews(){
+  const notConfigured = document.getElementById('reviewNotConfigured');
+  if (typeof REVIEWS_CSV_URL === 'undefined' || !REVIEWS_CSV_URL || REVIEWS_CSV_URL.startsWith('PASTE_')){
+    notConfigured.style.display = 'block';
+    return;
+  }
+  notConfigured.style.display = 'none';
+  fetch(REVIEWS_CSV_URL + (REVIEWS_CSV_URL.includes('?') ? '&' : '?') + 'cachebust=' + Date.now())
+    .then(r => r.ok ? r.text() : Promise.reject(r.status))
+    .then(text => renderReviews(reviewRowsToList(parseCSV(text))))
+    .catch(err => console.warn('Reviews sync failed', err));
+}
+refreshReviews();
+setInterval(refreshReviews, 60000);
 </script>
 </body>
 </html>

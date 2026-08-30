@@ -1,4 +1,4 @@
-const CACHE_NAME = "aligudarzgard-v1";
+const CACHE_NAME = "aligudarzman-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -6,6 +6,7 @@ const ASSETS = [
   "./icons.js",
   "./sites-seed.js",
   "./sheet-config.js",
+  "./reviews-config.js",
   "./icon-192.png",
   "./icon-512.png",
   "./apple-touch-icon.png"
